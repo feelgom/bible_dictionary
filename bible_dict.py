@@ -5,25 +5,13 @@ import os
 
 
 def main(input_list):
-    if len(input_list) == 1:
-        for i in range(len(input_list[0])):
-            if input_list[0][i] in ['1','2','3','4','5','6','7','8','9']:
-                break
-        book_name = input_list[0][:i]
-        jang = input_list[0].split(':')[0][i:]
-        jul = input_list[0].split(':')[1] 
+    find_key = "".join(input_list)
+    if ':' not in find_key:
+        find_key = input_list[0]+input_list[1]+":"+input_list[2]
 
-    elif len(input_list) == 2:
-        book_name = input_list[0]
-        jang = input_list[1].split(':')[0]
-        jul = input_list[1].split(':')[1]
-
-    elif len(input_list) == 3:
-        book_name = input_list[0]
-        jang = str(input_list[1])
-        jul = str(input_list[2])
-        
-    find_key = book_name+jang+":"+jul
+    if len(input_list) > 3:
+        print("입력 값이 너무 많습니다.")
+        return
 
     count = 0
     error = True
